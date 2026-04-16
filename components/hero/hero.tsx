@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, cubicBezier } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const textRevealVariants = {
@@ -19,30 +19,22 @@ const textRevealVariants = {
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center px-4 pt-24 pb-16 overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-linear-to-b from-zinc-950 via-zinc-950 to-zinc-900 pointer-events-none" />
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+      >
+        <source src="/videos/hero.webm" type="video/webm" />
+      </video>
+      {/* Overlay (for readability) */}
+      <div className="absolute inset-0 bg-black/50" />
 
-      {/* Subtle radial glow */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-200 h-150 bg-zinc-800/20 rounded-full blur-3xl pointer-events-none" />
-
-      <div className="relative z-10 max-w-5xl mx-auto text-center">
-        {/* Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-900 border border-zinc-800 mb-8"
-        >
-          <span className="w-2 h-2 rounded-full bg-emerald-500 pulse-glow" />
-          <span className="text-sm text-zinc-400">Now in Public Beta</span>
-        </motion.div>
-
-        {/* Headline with text mask animation */}
-        <h1
-          className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6"
-          style={{ fontFamily: "var(--font-cal-sans), sans-serif" }}
-        >
-          <span className="block overflow-hidden">
+      {/* Headline */}
+      <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-6">
+        <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold block overflow-hidden mb-4">
+          <span>
             <motion.span
               className="block"
               variants={textRevealVariants}
@@ -50,32 +42,30 @@ export default function Hero() {
               animate="visible"
               custom={0}
             >
-              Ship faster.
-            </motion.span>
-          </span>
-          <span className="block overflow-hidden">
-            <motion.span
-              className="block text-zinc-500"
-              variants={textRevealVariants}
-              initial="hidden"
-              animate="visible"
-              custom={1}
-            >
-              Scale smarter.
+              <span style={{ color: "#0dcaf0" }}> GN</span>euro Engineering
             </motion.span>
           </span>
         </h1>
 
         {/* Subheadline */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="text-lg sm:text-xl text-zinc-400 max-w-2xl mx-auto mb-10 leading-relaxed"
-        >
-          The modern platform for teams who ship fast. Built for scale, designed
-          for speed. Everything you need to build, deploy, and grow.
-        </motion.p>
+        <p className="text-lg sm:text-2xl max-w-xl block overflow-hidden mb-8">
+          <span>
+            <motion.span
+              className="block leading-relaxed"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              custom={2}
+            >
+              Experts in
+              <span style={{ color: "#0dcaf0" }}>
+                {" "}
+                Constructions and IT
+              </span>{" "}
+              Services
+            </motion.span>
+          </span>
+        </p>
 
         {/* CTAs */}
         <motion.div
@@ -89,15 +79,9 @@ export default function Hero() {
             className="shimmer-btn bg-white text-zinc-950 hover:bg-zinc-200 rounded-full px-8 h-12 text-base font-medium shadow-lg shadow-white/10"
           >
             Start Building
-            <ArrowRight className="ml-2 w-4 h-4" />
+            <ArrowDown className="ml-2 w-4 h-4" />
           </Button>
-          <Button
-            variant="outline"
-            size="lg"
-            className="rounded-full px-8 h-12 text-base font-medium border-zinc-800 text-zinc-300 hover:bg-zinc-900 hover:text-white hover:border-zinc-700 bg-transparent"
-          >
-            View Demo
-          </Button>
+          
         </motion.div>
       </div>
     </section>
