@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, cubicBezier } from "framer-motion";
-import { ArrowRight, ArrowDown } from "lucide-react";
+import { motion, cubicBezier,  } from "framer-motion";
+import { ArrowDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const textRevealVariants = {
@@ -69,19 +69,18 @@ export default function Hero() {
 
         {/* CTAs */}
         <motion.div
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
         >
           <Button
             size="lg"
             className="shimmer-btn bg-white text-zinc-950 hover:bg-zinc-200 rounded-full px-8 h-12 text-base font-medium shadow-lg shadow-white/10"
           >
-            Start Building
+            Explore Services
             <ArrowDown className="ml-2 w-4 h-4" />
           </Button>
-          
         </motion.div>
       </div>
     </section>
