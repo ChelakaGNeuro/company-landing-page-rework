@@ -82,14 +82,8 @@ const metrics = [
 ];
 
 export function Statistics() {
-  const [time, setTime] = useState(new Date());
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const interval = setInterval(() => setTime(new Date()), 1000);
-    return () => clearInterval(interval);
-  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -109,14 +103,10 @@ export function Statistics() {
       ref={sectionRef}
       className="relative py-24 lg:py-32 border-y border-foreground/10"
     >
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+      <div className="max-w-[1350px] mx-auto px-6 lg:px-12">
         {/* Header */}
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16 lg:mb-24">
           <div>
-            {/* <span className="inline-flex items-center gap-3 text-sm font-mono text-muted-foreground mb-6">
-              <span className="w-8 h-px bg-foreground/30" />
-              Live metrics
-            </span> */}
             <h2
               className={`text-4xl  text-foreground lg:text-6xl font-display tracking-tight transition-all duration-700 ${
                 isVisible
