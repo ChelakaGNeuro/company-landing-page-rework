@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, cubicBezier,  } from "framer-motion";
+import { motion, cubicBezier } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -18,7 +18,7 @@ const textRevealVariants = {
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center px-4 pt-24 pb-16 overflow-hidden">
+    <section className="relative min-h-screen flex flex-col items-center justify-center px-24 pt-24 pb-16 overflow-hidden">
       <video
         autoPlay
         loop
@@ -66,23 +66,22 @@ export default function Hero() {
             </motion.span>
           </span>
         </p>
-
-        {/* CTAs */}
-        <motion.div
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-        >
-          <Button
-            size="lg"
-            className="shimmer-btn bg-white text-zinc-950 hover:bg-zinc-200 rounded-full px-8 h-12 text-base font-medium shadow-lg shadow-white/10"
-          >
-            Explore Services
-            <ArrowDown className="ml-2 w-4 h-4" />
-          </Button>
-        </motion.div>
       </div>
+
+      {/* CTAs - Bottom of Section */}
+      <motion.div
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.6 }}
+      >
+        <Button
+          size="icon-lg"
+          className="shimmer-btn bg-white text-zinc-950 hover:bg-zinc-200 rounded-full px-6 h-12 text-base font-medium shadow-lg shadow-white/10"
+        >
+          <ArrowDown />
+        </Button>
+      </motion.div>
     </section>
   );
 }

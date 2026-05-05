@@ -46,7 +46,10 @@ function AnimatedCounter({
   }, [end, hasAnimated]);
 
   return (
-    <div ref={ref} className="text-6xl lg:text-8xl font-display tracking-tight">
+    <div
+      ref={ref}
+      className="text-6xl lg:text-8xl md:text-6xl sm:text-6xl font-display tracking-tight sm:justify-center sm:items-center sm:flex lg:block"
+    >
       {prefix}
       {count.toLocaleString()}
       {suffix}
@@ -101,32 +104,34 @@ export function Statistics() {
     <section
       id="studio"
       ref={sectionRef}
-      className="relative py-24 lg:py-32 border-y border-foreground/10"
+      className="relative  lg:px-24 md:px-12 sm:px-4 py-24 border-y border-foreground/10"
     >
-      <div className="max-w-[1350px] mx-auto px-6 lg:px-12">
+      <div className="max-w-[1350px] mx-auto px-6 lg:px-12 sm:justify-center sm:items-center lg:block sm:flex flex-col">
         {/* Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16 lg:mb-24">
+        <div className="flex flex-col gap-8 mb-16 lg:mb-24">
           <div>
             <h2
-              className={`text-4xl  text-foreground lg:text-6xl font-display tracking-tight transition-all duration-700 ${
+              className={`text-4xl  text-foreground lg:text-6xl md:text-6xl sm:text-6xl font-display tracking-tight transition-all duration-700 ${
                 isVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-4"
               }`}
             >
-              Built on Trust.
+              Built on{" "}
+              <span className="text-sky-800 dark:text-cyan-400">Trust.</span>
               <br />
-              Driven by Results.
+              Driven by{" "}
+              <span className="text-sky-800 dark:text-cyan-400">Results.</span>
             </h2>
           </div>
         </div>
 
         {/* Metrics Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-background/10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 md:grid-cols-1 items-center justify-center gap-px bg-background/10">
           {metrics.map((metric, index) => (
             <div
               key={metric.label}
-              className={`bg-background p-8 lg:p-12 transition-all duration-700 ${
+              className={`bg-background  p-8 lg:p-12 transition-all duration-700 ${
                 isVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-8"
@@ -138,7 +143,7 @@ export function Statistics() {
                 suffix={metric.suffix}
                 prefix={metric.prefix}
               />
-              <div className="mt-4 text-2xl text-muted-foreground">
+              <div className="mt-4 text-2xl md:text-2xl text-muted-foreground justify-center items-center sm:flex lg:block">
                 {metric.label}
               </div>
             </div>
