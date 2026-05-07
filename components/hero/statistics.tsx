@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
+import { animate, useMotionValue, useInView, easeOut } from "motion/react";
 
 function AnimatedCounter({
   end,
@@ -11,39 +12,29 @@ function AnimatedCounter({
   suffix?: string;
   prefix?: string;
 }) {
-  const [count, setCount] = useState(0);
-  const ref = useRef<HTMLDivElement>(null);
-  const [hasAnimated, setHasAnimated] = useState(false);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.5 });
+
+  const motionValue = useMotionValue(0);
+  const [display, setDisplay] = useState(0);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !hasAnimated) {
-          setHasAnimated(true);
-          const start = 0;
-          const duration = 7000;
-          const startTime = performance.now();
+    const unsubscribe = motionValue.on("change", (v) => {
+      setDisplay(Math.floor(v));
+    });
+    return unsubscribe;
+  }, [motionValue]);
 
-          const animate = (currentTime: number) => {
-            const elapsed = currentTime - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            const eased = 1 - Math.pow(1 - progress, 3);
-            setCount(Math.floor(eased * end));
+  useEffect(() => {
+    if (isInView) {
+      const controls = animate(motionValue, end, {
+        duration: 2,
+        ease: easeOut,
+      });
 
-            if (progress < 1) {
-              requestAnimationFrame(animate);
-            }
-          };
-
-          requestAnimationFrame(animate);
-        }
-      },
-      { threshold: 0.5 },
-    );
-
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, [end, hasAnimated]);
+      return controls.stop;
+    }
+  }, [isInView, end, motionValue]);
 
   return (
     <div
@@ -51,7 +42,7 @@ function AnimatedCounter({
       className="text-6xl lg:text-8xl md:text-6xl sm:text-6xl font-display tracking-tight sm:justify-center sm:items-center sm:flex lg:block"
     >
       {prefix}
-      {count.toLocaleString()}
+      {display.toLocaleString()}
       {suffix}
     </div>
   );
@@ -104,11 +95,11 @@ export function Statistics() {
     <section
       id="studio"
       ref={sectionRef}
-      className="relative  lg:px-24 md:px-12 sm:px-4 py-24 border-y border-foreground/10"
+      className="relative min-h-screen border lg:px-24 md:px-12 sm:px-4 pt-32 pb-24 "
     >
       <div className="max-w-[1350px] mx-auto px-6 lg:px-12 sm:justify-center sm:items-center lg:block sm:flex flex-col">
         {/* Header */}
-        <div className="flex flex-col gap-8 mb-16 lg:mb-24">
+        <div className="flex flex-col gap-8 mb-12 lg:mb-12">
           <div>
             <h2
               className={`text-4xl  text-foreground lg:text-6xl md:text-6xl sm:text-6xl font-display tracking-tight transition-all duration-700 ${
@@ -120,8 +111,12 @@ export function Statistics() {
               Built on{" "}
               <span className="text-sky-800 dark:text-cyan-400">Trust.</span>
               <br />
-              Driven by{" "}
-              <span className="text-sky-800 dark:text-cyan-400">Results.</span>
+              <div className="">
+                Driven by{" "}
+                <span className="text-sky-800 dark:text-cyan-400">
+                  Results.
+                </span>
+              </div>
             </h2>
           </div>
         </div>
