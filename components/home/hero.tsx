@@ -18,7 +18,10 @@ const textRevealVariants = {
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center px-24 pt-24 pb-16 overflow-hidden">
+    <section
+      id="hero"
+      className="relative min-h-screen flex flex-col items-center justify-center px-24 pt-24 pb-16 overflow-hidden"
+    >
       <video
         autoPlay
         loop
@@ -26,14 +29,14 @@ export default function Hero() {
         playsInline
         className="absolute inset-0 w-full h-full object-cover"
       >
-        <source src="/videos/hero.webm" type="video/webm" />
+        <source src="/videos/hero-optimiszed.mp4" type="video/mp4" />
       </video>
       {/* Overlay (for readability) */}
       <div className="absolute inset-0 bg-black/50" />
 
       {/* Headline */}
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-6">
-        <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold block overflow-hidden mb-4">
+        <h1 className="text-5xl sm:text-6xl lg:text-7xl lg:leading-tight font-bold block overflow-hidden  mb-4">
           <span>
             <motion.span
               className="block"
@@ -43,6 +46,7 @@ export default function Hero() {
               custom={0}
             >
               <span style={{ color: "#0dcaf0" }}> GN</span>euro Engineering
+              (Pvt) Ltd.
             </motion.span>
           </span>
         </h1>
@@ -78,6 +82,9 @@ export default function Hero() {
         <Button
           size="icon-lg"
           className="shimmer-btn bg-white text-zinc-950 hover:bg-zinc-200 rounded-full px-6 h-12 text-base font-medium shadow-lg shadow-white/10"
+          onClick={() =>
+            window.__lenisInstance?.scrollTo("#studio", { duration: 4 })
+          }
         >
           <ArrowDown />
         </Button>
