@@ -52,7 +52,9 @@ export function Navbar() {
           {navItems.map((item, index) => (
             <a
               key={item.label}
-              href={item.href}
+              onClick={() =>
+                window.__lenisInstance?.scrollTo(item.href, { duration: 4 })
+              }
               className="relative px-4 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
