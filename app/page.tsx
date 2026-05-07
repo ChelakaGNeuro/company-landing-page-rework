@@ -1,15 +1,20 @@
-import Hero from "@/components/hero/hero";
-import { Navbar } from "@/components/navbar/navbar";
-import { Statistics } from "@/components/statistics/statistics";
-import { Work } from "@/components/work/work";
+import Hero from "@/components/home/hero";
+import { Navbar } from "@/components/shared/navbar";
+import { SmoothScroll } from "@/components/shared/smooth-scroll";
+import { Statistics } from "@/components/home/statistics";
+import { Work } from "@/components/home/work";
+import Services from "@/components/home/services";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-background text-foreground">
-      <Navbar />
-      <Hero />
-      <Statistics />
-      <Work/>
-    </main>
+    <SmoothScroll>
+      <main className="min-h-screen bg-background text-foreground">
+        <Navbar />
+        <Hero />
+        <Statistics />
+        <Work />
+        <Services />
+      </main>
+    </SmoothScroll>
   );
 }
