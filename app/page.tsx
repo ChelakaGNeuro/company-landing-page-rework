@@ -1,6 +1,7 @@
 import Hero from "@/components/home/hero";
 import { Navbar } from "@/components/shared/navbar";
 import { SmoothScroll } from "@/components/shared/smooth-scroll";
+import { ScrollToTop } from "@/components/shared/scroll-to-top";
 import { Statistics } from "@/components/home/statistics";
 import { Work } from "@/components/home/work";
 import Services from "@/components/home/services";
@@ -15,6 +16,7 @@ export default function Home() {
         <Work />
         <Services />
       </main>
+      <ScrollToTop />
     </SmoothScroll>
   );
 }
