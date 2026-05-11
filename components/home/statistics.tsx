@@ -1,7 +1,13 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
-import { animate, useMotionValue, useInView, easeOut } from "motion/react";
+import {
+  animate,
+  useMotionValue,
+  useInView,
+  easeOut,
+  motion,
+} from "motion/react";
 
 function AnimatedCounter({
   end,
@@ -76,72 +82,55 @@ const metrics = [
 ];
 
 export function Statistics() {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) setIsVisible(true);
-      },
-      { threshold: 0.1 },
-    );
-
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <section
       id="studio"
-      ref={sectionRef}
-      className="relative min-h-screen border lg:px-24 md:px-12 sm:px-4 xs:px-2 pt-32 pb-24 "
+      className="relative  border lg:px-24 md:px-12 sm:px-4 xs:px-2 pt-32 pb-24 "
     >
       <div className="max-w-[1350px] mx-auto px-6 lg:px-12 xs:px-2 sm:justify-center sm:items-center xs:justify-center xs:items-center lg:block sm:flex flex-col">
         {/* Header */}
-        <div className="flex flex-col gap-8 mb-12 lg:mb-12">
-          <div>
-            <h2
-              className={`text-4xl text-foreground lg:text-6xl md:text-6xl sm:text-6xl xs:text-5xl xs:text-center lg:text-start font-display tracking-tight transition-all duration-700 ${
-                isVisible
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-4"
-              }`}
-            >
-              Built on{" "}
-              <span className="text-sky-800 dark:text-cyan-400">Trust.</span>
-              <br />
-              <div className="">
-                Driven by{" "}
-                <span className="text-sky-800 dark:text-cyan-400">
-                  Results.
-                </span>
-              </div>
-            </h2>
-          </div>
-        </div>
+        <motion.div
+          className="flex flex-col gap-8 mb-12 lg:mb-12"
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.7, ease: easeOut }}
+        >
+          <h2
+            className="text-4xl sm:text-6xl lg:text-6xl xs:text-center lg:text-start text-foreground font-display tracking-tight"
+          >
+            Built on{" "}
+            <span className="text-sky-800 dark:text-cyan-400">Trust.</span>
+            <br />
+            Driven by{" "}
+            <span className="text-sky-800 dark:text-cyan-400">Results.</span>
+          </h2>
+        </motion.div>
 
         {/* Metrics Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 md:grid-cols-1 items-center justify-center gap-px bg-background/10">
           {metrics.map((metric, index) => (
-            <div
+             <motion.div
               key={metric.label}
-              className={`bg-background xs:px-4 py-8 lg:p-12 transition-all duration-700 ${
-                isVisible
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-8"
-              }`}
-              style={{ transitionDelay: `${index * 100}ms` }}
+              className="bg-background xs:px-4 py-8 lg:p-12"
+              initial={{ opacity: 0, y: 32 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{
+                duration: 0.7,
+                ease: easeOut,
+                delay: index * 0.1,
+              }}
             >
               <AnimatedCounter
-                end={typeof metric.value === "number" ? metric.value : 0}
+                end={metric.value}
                 suffix={metric.suffix}
                 prefix={metric.prefix}
               />
               <div className="mt-4 text-2xl md:text-2xl text-muted-foreground justify-center items-center sm:flex xs:text-xl xs:justify-center xs:items-center xs:flex  lg:block">
                 {metric.label}
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
