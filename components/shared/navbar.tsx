@@ -4,7 +4,6 @@ import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Menu, Moon, Sun, X } from "lucide-react";
 import { useTheme } from "next-themes";
-import { Button } from "@/components/ui/button";
 
 const navItems = [
   { label: "Home", href: "#home" },
@@ -108,21 +107,15 @@ export function Navbar() {
                 key={item.label}
                 href={item.href}
                 className="px-4 py-3 text-sm text-muted-foreground hover:text-foreground hover:bg-muted rounded-lg transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
+                //onClick={() => setMobileMenuOpen(false)}
+                onClick={() => {
+                  window.__lenisInstance?.scrollTo(item.href, { duration: 4 });
+                  setMobileMenuOpen(false);
+                }}
               >
                 {item.label}
               </a>
             ))}
-            <hr className="border-border my-2" />
-            <Button
-              variant="ghost"
-              className="justify-start text-muted-foreground hover:text-foreground"
-            >
-              Sign In
-            </Button>
-            <Button className="shimmer-btn bg-white text-zinc-950 hover:bg-zinc-200 rounded-full">
-              Get Started
-            </Button>
           </div>
         </motion.div>
       )}
