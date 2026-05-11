@@ -12,7 +12,7 @@ export function Work() {
       id="work"
       className="relative lg:px-24 md:px-12 sm:px-4 xs:px-2 pb-24 pt-32 "
     >
-      <div className="max-w-[1350px] mx-auto px-6 lg:px-12 xs:px-2 sm:justify-center sm:items-center xs:justify-center xs:items-center lg:block sm:flex flex-col">
+      <div className="max-w-[1350px] mx-auto px-6 lg:px-12  sm:justify-center sm:items-center xs:justify-center xs:items-center lg:block sm:flex flex-col">
         {/* Header */}
         <div className="flex flex-col gap-8 mb-16 lg:mb-16">
           <motion.div
