@@ -87,7 +87,7 @@ export function Statistics() {
       id="studio"
       className="relative  border lg:px-24 md:px-12 sm:px-4 xs:px-2 pt-32 pb-24 "
     >
-      <div className="max-w-[1350px] mx-auto px-6 lg:px-12 xs:px-2 sm:justify-center sm:items-center xs:justify-center xs:items-center lg:block sm:flex flex-col">
+      <div className="max-w-[1350px] mx-auto px-6 lg:px-12 sm:justify-center sm:items-center xs:justify-center xs:items-center lg:block sm:flex flex-col">
         {/* Header */}
         <motion.div
           className="flex flex-col gap-8 mb-12 lg:mb-12"
@@ -96,9 +96,7 @@ export function Statistics() {
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.7, ease: easeOut }}
         >
-          <h2
-            className="text-4xl sm:text-6xl lg:text-6xl xs:text-center lg:text-start text-foreground font-display tracking-tight"
-          >
+          <h2 className="text-4xl sm:text-6xl lg:text-6xl xs:text-5xl xs:text-center lg:text-start text-foreground font-display tracking-tight">
             Built on{" "}
             <span className="text-sky-800 dark:text-cyan-400">Trust.</span>
             <br />
@@ -110,7 +108,7 @@ export function Statistics() {
         {/* Metrics Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 md:grid-cols-1 items-center justify-center gap-px bg-background/10">
           {metrics.map((metric, index) => (
-             <motion.div
+            <motion.div
               key={metric.label}
               className="bg-background xs:px-4 py-8 lg:p-12"
               initial={{ opacity: 0, y: 32 }}
