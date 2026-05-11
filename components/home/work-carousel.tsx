@@ -44,9 +44,10 @@ export function WorkCarousel() {
       whileInView={{ opacity: 1, y: 0 }}
       transition={transition}
       viewport={{ once: true, amount: 0.3 }}
+      className="w-full min-w-0 overflow-hidden"
     >
       <div
-        className="w-full overflow-hidden"
+        className="w-full min-w-0 overflow-hidden"
         style={{
           maskImage:
             "linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)",
@@ -55,24 +56,32 @@ export function WorkCarousel() {
         }}
       >
         <Carousel
-          className="w-full"
+          className="w-full min-w-0"
           setApi={setApi}
-          plugins={[Autoplay({ delay: 1500 })]}
-          opts={{ loop: true, align: "center" }}
+          plugins={[Autoplay({ delay: 5000, stopOnInteraction: false })]}
+          opts={{
+            loop: true,
+            align: "center",
+            slidesToScroll: 1,
+            containScroll: false,
+          }}
         >
           <CarouselContent className="-ml-4 items-center">
             {WORK_CAROUSEL_ITEMS.map((item, index) => {
               const isActive = selectedIndex === index;
 
               return (
-                <CarouselItem key={index} className="pl-4 basis-auto">
-                  <div className="relative h-70 sm:h-80 md:h-95 lg:h-130">
+                <CarouselItem
+                  key={index}
+                  className="pl-4 basis-[280px] sm:basis-auto"
+                >
+                  <div className="relative h-auto xs:h-100 w-full sm:h-80 sm:w-auto md:h-95 lg:h-120">
                     <Image
                       src={item.SRC}
                       alt={`Work carousel image ${index + 1}`}
                       width={500}
                       height={460}
-                      className="h-full w-auto object-contain block rounded-4xl"
+                      className="h-full w-full object-cover sm:w-auto sm:object-contain block rounded-4xl"
                     />
                     <div>
                       <Badge
