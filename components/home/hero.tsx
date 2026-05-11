@@ -20,7 +20,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col items-center justify-center px-24 pt-24 pb-16 overflow-hidden"
+      className="relative min-h-screen flex flex-col items-center justify-center lg:px-24 md:px-12 sm:px-4 xs:px-2 pt-24 pb-16 overflow-hidden"
     >
       <video
         autoPlay
@@ -36,7 +36,7 @@ export default function Hero() {
 
       {/* Headline */}
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-6">
-        <h1 className="text-5xl sm:text-6xl lg:text-7xl lg:leading-tight font-bold block overflow-hidden  mb-4">
+        <h1 className="text-5xl xs:text-5xl sm:text-6xl lg:text-7xl lg:leading-tight font-bold block overflow-hidden  mb-4">
           <span>
             <motion.span
               className="block"
@@ -52,7 +52,7 @@ export default function Hero() {
         </h1>
 
         {/* Subheadline */}
-        <p className="text-lg sm:text-2xl max-w-xl block overflow-hidden mb-8">
+        <p className="text-lg sm:text-2xl xs:text-2xl max-w-xl block overflow-hidden mb-8">
           <span>
             <motion.span
               className="block leading-relaxed"
