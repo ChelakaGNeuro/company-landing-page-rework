@@ -5,6 +5,7 @@ import { ScrollToTop } from "@/components/shared/scroll-to-top";
 import { Statistics } from "@/components/home/statistics";
 import { Work } from "@/components/home/work";
 import Services from "@/components/home/services";
+import ContactUs from "@/components/contact-us/contact-us";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
         <Statistics />
         <Work />
         <Services />
+        <ContactUs />
       </main>
       <ScrollToTop />
     </SmoothScroll>
