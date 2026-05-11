@@ -39,7 +39,7 @@ function AnimatedCounter({
   return (
     <div
       ref={ref}
-      className="text-6xl lg:text-8xl md:text-6xl sm:text-6xl font-display tracking-tight sm:justify-center sm:items-center sm:flex lg:block"
+      className="text-6xl lg:text-7xl md:text-6xl sm:text-6xl xs:text-5xl font-display tracking-tight sm:justify-center sm:items-center sm:flex xs:justify-center xs:items-center xs:flex  lg:block"
     >
       {prefix}
       {display.toLocaleString()}
@@ -95,14 +95,14 @@ export function Statistics() {
     <section
       id="studio"
       ref={sectionRef}
-      className="relative min-h-screen border lg:px-24 md:px-12 sm:px-4 pt-32 pb-24 "
+      className="relative min-h-screen border lg:px-24 md:px-12 sm:px-4 xs:px-2 pt-32 pb-24 "
     >
-      <div className="max-w-[1350px] mx-auto px-6 lg:px-12 sm:justify-center sm:items-center lg:block sm:flex flex-col">
+      <div className="max-w-[1350px] mx-auto px-6 lg:px-12 xs:px-2 sm:justify-center sm:items-center xs:justify-center xs:items-center lg:block sm:flex flex-col">
         {/* Header */}
         <div className="flex flex-col gap-8 mb-12 lg:mb-12">
           <div>
             <h2
-              className={`text-4xl  text-foreground lg:text-6xl md:text-6xl sm:text-6xl font-display tracking-tight transition-all duration-700 ${
+              className={`text-4xl text-foreground lg:text-6xl md:text-6xl sm:text-6xl xs:text-5xl xs:text-center lg:text-start font-display tracking-tight transition-all duration-700 ${
                 isVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-4"
@@ -126,7 +126,7 @@ export function Statistics() {
           {metrics.map((metric, index) => (
             <div
               key={metric.label}
-              className={`bg-background  p-8 lg:p-12 transition-all duration-700 ${
+              className={`bg-background xs:px-4 py-8 lg:p-12 transition-all duration-700 ${
                 isVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-8"
@@ -138,7 +138,7 @@ export function Statistics() {
                 suffix={metric.suffix}
                 prefix={metric.prefix}
               />
-              <div className="mt-4 text-2xl md:text-2xl text-muted-foreground justify-center items-center sm:flex lg:block">
+              <div className="mt-4 text-2xl md:text-2xl text-muted-foreground justify-center items-center sm:flex xs:text-xl xs:justify-center xs:items-center xs:flex  lg:block">
                 {metric.label}
               </div>
             </div>
