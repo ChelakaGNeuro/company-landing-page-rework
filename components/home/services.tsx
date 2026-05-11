@@ -15,9 +15,9 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="relative min-h-screen border lg:px-24 md:px-12 sm:px-4 pt-32 pb-24"
+      className="relative min-h-screen border lg:px-24 md:px-12 sm:px-4 xs:px-2 pt-32 pb-24"
     >
-      <div className="max-w-337.5 mx-auto px-6 lg:px-12 sm:justify-center sm:items-center lg:block sm:flex flex-col">
+      <div className="max-w-337.5 mx-auto px-6 lg:px-12  sm:justify-center sm:items-center lg:block sm:flex flex-col">
         {/* Header */}
         <div className="flex flex-col gap-8 mb-12 lg:mb-12">
           <div>
@@ -28,7 +28,7 @@ export default function Services() {
               viewport={{ once: true, amount: 0.3 }}
             >
               <h2
-                className={`text-4xl  text-foreground lg:text-6xl md:text-6xl sm:text-6xl font-display tracking-tight transition-all duration-700 `}
+                className={`text-4xl  text-foreground lg:text-6xl md:text-6xl sm:text-6xl xs:text-5xl xs:text-center lg:text-start font-display tracking-tight transition-all duration-700 `}
               >
                 Our{" "}
                 <span className="text-sky-800 dark:text-cyan-400">
