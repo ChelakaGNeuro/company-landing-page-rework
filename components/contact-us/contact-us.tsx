@@ -26,7 +26,7 @@ export default function ContactUs() {
   return (
     <section
       id="contact-us"
-      className="relative min-h-screen border lg:px-24 md:px-12 sm:px-4 pt-32 pb-24"
+      className="relative min-h-screen border lg:px-24 md:px-12 sm:px-4 xs:px-2 pt-32 pb-24"
     >
       <div className="max-w-337.5 mx-auto px-6 lg:px-12 sm:justify-center sm:items-center lg:block sm:flex flex-col">
         {/* Header */}
@@ -37,13 +37,13 @@ export default function ContactUs() {
             transition={transition}
             viewport={{ once: true, amount: 0.3 }}
           >
-            <h2 className="text-4xl text-foreground lg:text-6xl md:text-6xl sm:text-6xl font-display tracking-tight">
+            <h2 className="text-4xl text-foreground lg:text-start lg:text-6xl md:text-6xl sm:text-6xl xs:text-5xl xs:text-center sm:text-center font-display tracking-tight">
               {SECTION.heading.base}
               <span className="text-sky-800 dark:text-cyan-400">
                 {SECTION.heading.accent}
               </span>
             </h2>
-            <p className="mt-4 text-lg text-muted-foreground max-w-xl">
+            <p className="mt-4 text-lg text-muted-foreground text-justify max-w-xl">
               {SECTION.subheading}
             </p>
           </motion.div>
