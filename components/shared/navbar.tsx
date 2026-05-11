@@ -6,11 +6,11 @@ import { Menu, Moon, Sun, X } from "lucide-react";
 import { useTheme } from "next-themes";
 
 const navItems = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Our Work", href: "#our-work" },
+  { label: "Home", href: "#hero" },
+  { label: "About", href: "#studio" },
+  { label: "Our Work", href: "#work" },
   { label: "Services", href: "#services" },
-  { label: "Contact", href: "#contact" },
+  { label: "Contact", href: "#contact-us" },
 ];
 
 export function Navbar() {
@@ -37,7 +37,14 @@ export function Navbar() {
         className="relative flex items-center justify-between px-4 py-3 rounded-full bg-background/70 backdrop-blur-md border border-border"
       >
         {/* Logo */}
-        <a href="#" className="flex items-center gap-2">
+        <a
+          href="#hero"
+          className="flex items-center gap-2"
+          onClick={(e) => {
+            e.preventDefault();
+            window.__lenisInstance?.scrollTo("#hero", { duration: 4 });
+          }}
+        >
           <div className="w-8 h-8 rounded-lg bg-foreground flex items-center justify-center">
             <span className="text-background font-bold text-sm">G</span>
           </div>
@@ -51,9 +58,11 @@ export function Navbar() {
           {navItems.map((item, index) => (
             <a
               key={item.label}
-              onClick={() =>
-                window.__lenisInstance?.scrollTo(item.href, { duration: 4 })
-              }
+              href={item.href}
+              onClick={(e) => {
+                e.preventDefault();
+                window.__lenisInstance?.scrollTo(item.href, { duration: 4 });
+              }}
               className="relative px-4 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
@@ -107,8 +116,8 @@ export function Navbar() {
                 key={item.label}
                 href={item.href}
                 className="px-4 py-3 text-sm text-muted-foreground hover:text-foreground hover:bg-muted rounded-lg transition-colors"
-                //onClick={() => setMobileMenuOpen(false)}
-                onClick={() => {
+                onClick={(e) => {
+                  e.preventDefault();
                   window.__lenisInstance?.scrollTo(item.href, { duration: 4 });
                   setMobileMenuOpen(false);
                 }}
