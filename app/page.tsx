@@ -6,6 +6,7 @@ import { Statistics } from "@/components/home/statistics";
 import { Work } from "@/components/home/work";
 import Services from "@/components/home/services";
 import ContactUs from "@/components/contact-us/contact-us";
+import { QuoteFAB } from "@/components/quote/quote-fab";
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
         <ContactUs />
       </main>
       <ScrollToTop />
+      <QuoteFAB />
     </SmoothScroll>
   );
 }
