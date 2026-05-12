@@ -33,7 +33,7 @@ export function ScrollToTop() {
           exit={{ opacity: 0, y: 16 }}
           transition={{ duration: 0.3, ease: "easeOut" }}
           aria-label="Scroll to top"
-          className="fixed bottom-8 right-8 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-foreground text-background shadow-lg hover:scale-110 active:scale-95 transition-transform"
+          className="fixed bottom-20 right-6 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-foreground text-background shadow-lg hover:scale-110 active:scale-95 transition-transform"
         >
           <ArrowUp className="h-5 w-5" />
         </motion.button>
