@@ -34,7 +34,7 @@ export function ServicesTabBar({
                   : "bg-accent border-border text-foreground/70 hover:border-border/30 hover:text-foreground"
               }`}
             >
-              {c.label}
+              {c.label.toUpperCase()}
             </Button>
           );
         })}

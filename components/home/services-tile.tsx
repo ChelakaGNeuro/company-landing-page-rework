@@ -39,7 +39,7 @@ export function ServicesTile({ tile, categoryLabel }: ServicesTileProps) {
 
       <div className="p-6">
         <div className="flex items-start justify-between gap-4">
-          <h3 className="tracking-tight">{tile.title}</h3>
+          <h3 className="text-lg font-semibold tracking-tight">{tile.title}</h3>
           <span className="shrink-0 inline-flex items-center justify-center w-9 h-9 rounded-full border border-border text-foreground/70 group-hover:bg-foreground group-hover:text-primary-foreground group-hover:border-foreground transition-colors">
             <ArrowUpRight className="w-4 h-4" />
           </span>
