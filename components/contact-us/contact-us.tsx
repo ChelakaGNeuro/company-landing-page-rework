@@ -37,13 +37,13 @@ export default function ContactUs() {
             transition={transition}
             viewport={{ once: true, amount: 0.3 }}
           >
-            <h2 className="text-4xl text-foreground lg:text-start lg:text-6xl md:text-6xl sm:text-6xl xs:text-5xl xs:text-center sm:text-center font-display tracking-tight">
+            <h2 className="text-4xl font-bold text-foreground lg:text-start lg:text-6xl md:text-6xl sm:text-6xl xs:text-5xl xs:text-center sm:text-center font-display tracking-tight">
               {SECTION.heading.base}
               <span className="text-sky-800 dark:text-cyan-400">
                 {SECTION.heading.accent}
               </span>
             </h2>
-            <p className="mt-4 text-lg text-muted-foreground text-justify max-w-xl">
+            <p className="mt-4 text-lg lg:mt-4 xs:mt-10 text-muted-foreground text-justify max-w-xl">
               {SECTION.subheading}
             </p>
           </motion.div>
