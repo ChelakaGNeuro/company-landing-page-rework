@@ -64,8 +64,8 @@ export function QuoteFAB() {
         )}
       >
         <FileText className="size-4 shrink-0" />
-        <span className="hidden sm:inline">Get Quote</span>
-        <span className="sm:hidden">Quote</span>
+        <span className="hidden sm:inline uppercase">Get Quote</span>
+        <span className="sm:hidden uppercase">Quote</span>
       </button>
 
       {/* ── Mobile: bottom-sheet drawer ── */}
