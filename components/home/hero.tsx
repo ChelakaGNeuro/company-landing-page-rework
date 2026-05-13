@@ -36,7 +36,7 @@ export default function Hero() {
 
       {/* Headline */}
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-6">
-        <h1 className="text-5xl xs:text-5xl sm:text-6xl lg:text-7xl lg:leading-tight font-bold block overflow-hidden  mb-4">
+        <h1 className="text-5xl xs:text-5xl sm:text-6xl lg:text-7xl lg:leading-tight font-bold block overflow-hidden mb-4">
           <span>
             <motion.span
               className="block"
