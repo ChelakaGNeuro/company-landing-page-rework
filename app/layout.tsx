@@ -1,13 +1,7 @@
 import type { Metadata } from "next";
-import { Geist_Mono, Roboto } from "next/font/google";
+import { Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import "./globals.css";
-
-const roboto = Roboto({
-  variable: "--font-roboto",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "700"],
-});
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
@@ -28,7 +22,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${roboto.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistMono.variable} h-full antialiased`}
     >
       <body suppressHydrationWarning className="min-h-full flex flex-col">
         <ThemeProvider
