@@ -96,12 +96,12 @@ export function Statistics() {
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.7, ease: easeOut }}
         >
-          <h2 className="text-4xl sm:text-6xl lg:text-6xl xs:text-5xl xs:text-center lg:text-start text-foreground font-display tracking-tight">
+          <h2 className="text-4xl font-bold sm:text-6xl lg:text-6xl xs:text-5xl xs:text-center lg:text-start text-foreground font-display tracking-tight">
             Built on{" "}
-            <span className="text-sky-800 dark:text-cyan-400">Trust.</span>
+            <span className="text-sky-800 dark:text-cyan-400">Trust</span>
             <br />
             Driven by{" "}
-            <span className="text-sky-800 dark:text-cyan-400">Results.</span>
+            <span className="text-sky-800 dark:text-cyan-400">Results</span>
           </h2>
         </motion.div>
 
