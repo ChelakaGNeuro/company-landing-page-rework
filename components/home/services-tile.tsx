@@ -1,23 +1,33 @@
 import { ArrowUpRight } from "lucide-react";
 import { Badge } from "../ui/badge";
 import Image from "next/image";
+import Link from "next/link";
 
 export type Tile = {
   title: string;
   description: string;
   image: string;
+  slug: string;
 };
 
 type ServicesTileProps = {
   tile: Tile;
+  categoryId: string;
   categoryLabel: string;
 };
 
-export function ServicesTile({ tile, categoryLabel }: ServicesTileProps) {
+export function ServicesTile({
+  tile,
+  categoryId,
+  categoryLabel,
+}: ServicesTileProps) {
   const shortLabel = categoryLabel.split(",")[0];
 
   return (
-    <article className="group relative overflow-hidden rounded-2xl border border-border bg-background hover:border-border/40 transition-all duration-300">
+    <Link
+      href={`/${categoryId}/${tile.slug}`}
+      className="block group relative overflow-hidden rounded-2xl border border-border bg-background hover:border-border/40 transition-all duration-300"
+    >
       <div className="relative aspect-4/3 overflow-hidden">
         
 
@@ -46,6 +56,6 @@ export function ServicesTile({ tile, categoryLabel }: ServicesTileProps) {
         </div>
         <p className="mt-2 text-foreground/60">{tile.description}</p>
       </div>
-    </article>
+    </Link>
   );
 }
