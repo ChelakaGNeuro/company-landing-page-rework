@@ -43,7 +43,11 @@ export default function Services() {
           activeId={activeId}
           onSelect={setActiveId}
         />
-        <ServicesTileGrid tiles={active.tiles} categoryLabel={active.label} />
+        <ServicesTileGrid
+          tiles={active.tiles}
+          categoryId={active.id}
+          categoryLabel={active.label}
+        />
       </div>
     </section>
   );
